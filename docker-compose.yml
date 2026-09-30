@@ -1,0 +1,110 @@
+version: "3.9"
+
+services:
+
+  # ── Hardhat blockchain node ────────────────────────────────────────────────
+  blockchain:
+    image: node:20-slim
+    working_dir: /app
+    volumes:
+      - ./blockchain:/app
+      - blockchain_node_modules:/app/node_modules
+    command: >
+      sh -c "npm install --silent &&
+             npx hardhat node --port 8545 --hostname 0.0.0.0"
+    ports:
+      - "8545:8545"
+    healthcheck:
+      test: ["CMD", "curl", "-sf", "http://localhost:8545"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+    networks:
+      - abis
+
+  # ── Deploy contracts (one-shot) ────────────────────────────────────────────
+  deploy:
+    image: node:20-slim
+    working_dir: /app
+    volumes:
+      - ./blockchain:/app
+      - blockchain_node_modules:/app/node_modules
+    command: >
+      sh -c "npm install --silent &&
+             npx hardhat run scripts/deploy.js --network localhost"
+    depends_on:
+      blockchain:
+        condition: service_healthy
+    environment:
+      - HARDHAT_NETWORK=localhost
+    networks:
+      - abis
+    restart: on-failure
+
+  # ── AI Agent ──────────────────────────────────────────────────────────────
+  agent:
+    build:
+      context: .
+      dockerfile: Dockerfile.agent
+    volumes:
+      - ./ai:/app/ai
+      - ./blockchain:/app/blockchain
+      - ./logs:/app/logs
+    environment:
+      - ABIS_RPC=http://blockchain:8545
+      - ABIS_DISCORD_WEBHOOK=${ABIS_DISCORD_WEBHOOK:-}
+      - ABIS_SLACK_WEBHOOK=${ABIS_SLACK_WEBHOOK:-}
+    depends_on:
+      blockchain:
+        condition: service_healthy
+    networks:
+      - abis
+    restart: unless-stopped
+
+  # ── FastAPI Dashboard API ─────────────────────────────────────────────────
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./dashboard/api:/app
+      - ./blockchain:/blockchain
+      - ./ai:/ai
+    environment:
+      - ABIS_RPC=http://blockchain:8545
+    depends_on:
+      blockchain:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-sf", "http://localhost:8000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+    networks:
+      - abis
+    restart: unless-stopped
+
+  # ── React Dashboard Frontend ───────────────────────────────────────────────
+  frontend:
+    build:
+      context: ./dashboard/frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:80"
+    depends_on:
+      api:
+        condition: service_healthy
+    networks:
+      - abis
+    restart: unless-stopped
+
+volumes:
+  blockchain_node_modules:
+
+networks:
+  abis:
+    driver: bridge

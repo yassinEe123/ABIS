@@ -1,0 +1,50 @@
+# Python
+ai/venv/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Node.js
+node_modules/
+blockchain/node_modules/
+dashboard/frontend/node_modules/
+
+# Build outputs
+dashboard/frontend/dist/
+blockchain/artifacts/
+blockchain/cache/
+
+# Large model files (>100MB, use Git LFS or external storage)
+ai/models/*.pkl
+ai/data/*.csv
+data/*.csv
+
+# Databases
+*.db
+*.sqlite
+
+# Logs
+logs/
+*.log
+
+# Pytest cache
+.pytest_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Secrets
+.env
+.env.*
+*.key
+*.secret

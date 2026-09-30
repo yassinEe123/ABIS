@@ -1,0 +1,457 @@
+[
+  {
+    "id": "burst_dex_same",
+    "label": "Burst DEX (même cible)",
+    "category": "Burst",
+    "desc": "12 swaps rapides vers le même DEX",
+    "default_attacker": 2,
+    "target_type": "contract",
+    "contract": "dex"
+  },
+  {
+    "id": "burst_token_same",
+    "label": "Burst Token (même wallet)",
+    "category": "Burst",
+    "desc": "12 transferts token rapides vers le même wallet",
+    "default_attacker": 3,
+    "target_type": "wallet",
+    "contract": "token",
+    "default_target": 10
+  },
+  {
+    "id": "burst_vault_same",
+    "label": "Burst Vault (même cible)",
+    "category": "Burst",
+    "desc": "12 dépôts rapides vers le Vault",
+    "default_attacker": 4,
+    "target_type": "contract",
+    "contract": "vault"
+  },
+  {
+    "id": "burst_lending_same",
+    "label": "Burst Lending (même cible)",
+    "category": "Burst",
+    "desc": "10 dépôts rapides vers le Lending",
+    "default_attacker": 5,
+    "target_type": "contract",
+    "contract": "lending"
+  },
+  {
+    "id": "burst_wallet_same",
+    "label": "Burst Wallet (même wallet)",
+    "category": "Burst",
+    "desc": "12 envois ETH directs vers le même wallet",
+    "default_attacker": 6,
+    "target_type": "wallet",
+    "contract": null,
+    "default_target": 10
+  },
+  {
+    "id": "micro_burst",
+    "label": "Micro Burst",
+    "category": "Burst",
+    "desc": "40 micro-transactions vers le Vault",
+    "default_attacker": 7,
+    "target_type": "contract",
+    "contract": "vault"
+  },
+  {
+    "id": "mega_burst",
+    "label": "Mega Burst",
+    "category": "Burst",
+    "desc": "70 transactions rapides vers le Vault",
+    "default_attacker": 8,
+    "target_type": "contract",
+    "contract": "vault"
+  },
+  {
+    "id": "spray_token_multi",
+    "label": "Spray Token (multi-wallets)",
+    "category": "Spray",
+    "desc": "15 transferts token vers 15 wallets différents",
+    "default_attacker": 2,
+    "target_type": "wallet",
+    "contract": "token",
+    "default_target": 3
+  },
+  {
+    "id": "spray_eth_multi",
+    "label": "Spray ETH (multi-wallets)",
+    "category": "Spray",
+    "desc": "15 envois ETH vers 15 adresses différentes",
+    "default_attacker": 3,
+    "target_type": "wallet",
+    "contract": null,
+    "default_target": 4
+  },
+  {
+    "id": "spray_vault_multi",
+    "label": "Spray Vault (multi-attaquants)",
+    "category": "Spray",
+    "desc": "4 attaquants simultanés sur le Vault",
+    "default_attacker": 4,
+    "target_type": "contract",
+    "contract": "vault",
+    "multi": true
+  },
+  {
+    "id": "spray_dex_multi",
+    "label": "Spray DEX (multi-attaquants)",
+    "category": "Spray",
+    "desc": "4 attaquants simultanés sur le DEX",
+    "default_attacker": 2,
+    "target_type": "contract",
+    "contract": "dex",
+    "multi": true
+  },
+  {
+    "id": "fan_out_attack",
+    "label": "Fan Out Attack",
+    "category": "Spray",
+    "desc": "40 envois ETH vers 40 adresses différentes",
+    "default_attacker": 2,
+    "target_type": "wallet",
+    "contract": null,
+    "default_target": 3
+  },
+  {
+    "id": "pump_dump_token",
+    "label": "Pump & Dump Token",
+    "category": "Prix",
+    "desc": "Achats massifs puis vente pour manipuler le prix",
+    "default_attacker": 3,
+    "target_type": "contract",
+    "contract": "dex"
+  },
+  {
+    "id": "wash_trading",
+    "label": "Wash Trading",
+    "category": "Prix",
+    "desc": "6 cycles achat/vente immédiat pour simuler du volume",
+    "default_attacker": 4,
+    "target_type": "contract",
+    "contract": "dex"
+  },
+  {
+    "id": "price_slippage_abuse",
+    "label": "Price Slippage Abuse",
+    "category": "Prix",
+    "desc": "3 très gros achats pour abuser du slippage",
+    "default_attacker": 5,
+    "target_type": "contract",
+    "contract": "dex"
+  },
+  {
+    "id": "sandwich_attack",
+    "label": "Sandwich Attack",
+    "category": "Prix",
+    "desc": "Front-run + back-run autour d'une transaction victime",
+    "default_attacker": 2,
+    "target_type": "contract",
+    "contract": "dex"
+  },
+  {
+    "id": "front_running",
+    "label": "Front Running",
+    "category": "Prix",
+    "desc": "4 achats ultra-rapides avant les autres",
+    "default_attacker": 3,
+    "target_type": "contract",
+    "contract": "dex"
+  },
+  {
+    "id": "liquidity_drain",
+    "label": "Liquidity Drain",
+    "category": "Liquidité",
+    "desc": "Dépôt massif puis retraits massifs du Vault",
+    "default_attacker": 4,
+    "target_type": "contract",
+    "contract": "vault"
+  },
+  {
+    "id": "liquidity_inject_withdraw",
+    "label": "Inject & Withdraw",
+    "category": "Liquidité",
+    "desc": "8 cycles dépôt/retrait rapides sur le Lending",
+    "default_attacker": 5,
+    "target_type": "contract",
+    "contract": "lending"
+  },
+  {
+    "id": "pool_imbalance_attack",
+    "label": "Pool Imbalance Attack",
+    "category": "Liquidité",
+    "desc": "3 très gros achats pour déséquilibrer le pool DEX",
+    "default_attacker": 6,
+    "target_type": "contract",
+    "contract": "dex"
+  },
+  {
+    "id": "borrow_max_ltv",
+    "label": "Borrow Max LTV",
+    "category": "Lending",
+    "desc": "Dépôt puis emprunt au maximum du LTV",
+    "default_attacker": 7,
+    "target_type": "contract",
+    "contract": "lending"
+  },
+  {
+    "id": "collateral_dump",
+    "label": "Collateral Dump",
+    "category": "Lending",
+    "desc": "Dépôts rapides puis abandon de collatéral",
+    "default_attacker": 8,
+    "target_type": "contract",
+    "contract": "lending"
+  },
+  {
+    "id": "flash_borrow_repay",
+    "label": "Flash Borrow & Repay",
+    "category": "Lending",
+    "desc": "4 cycles emprunt/remboursement instantané",
+    "default_attacker": 9,
+    "target_type": "contract",
+    "contract": "lending"
+  },
+  {
+    "id": "liquidation_trigger",
+    "label": "Liquidation Trigger",
+    "category": "Lending",
+    "desc": "Tente de provoquer une liquidation forcée",
+    "default_attacker": 10,
+    "target_type": "contract",
+    "contract": "lending"
+  },
+  {
+    "id": "debt_loop",
+    "label": "Debt Loop",
+    "category": "Lending",
+    "desc": "10 cycles emprunt/remboursement pour accumuler de la dette",
+    "default_attacker": 11,
+    "target_type": "contract",
+    "contract": "lending"
+  },
+  {
+    "id": "sybil_attack",
+    "label": "Sybil Attack",
+    "category": "Sybil",
+    "desc": "3 identités distinctes attaquent le Vault",
+    "default_attacker": 2,
+    "target_type": "contract",
+    "contract": "vault",
+    "multi": true
+  },
+  {
+    "id": "new_wallet_burst",
+    "label": "New Wallet Burst",
+    "category": "Sybil",
+    "desc": "Nouveau wallet fait un burst rapide sur le Vault",
+    "default_attacker": 15,
+    "target_type": "contract",
+    "contract": "vault"
+  },
+  {
+    "id": "coordinated_wallets",
+    "label": "Coordinated Wallets",
+    "category": "Sybil",
+    "desc": "4 wallets coordonnés frappent le Vault simultanément",
+    "default_attacker": 2,
+    "target_type": "contract",
+    "contract": "vault",
+    "multi": true
+  },
+  {
+    "id": "relay_attack",
+    "label": "Relay Attack",
+    "category": "Sybil",
+    "desc": "Chaîne de relais ETH entre 4 wallets successifs",
+    "default_attacker": 2,
+    "target_type": "wallet",
+    "contract": null,
+    "default_target": 5,
+    "multi": true
+  },
+  {
+    "id": "vault_drain",
+    "label": "Vault Drain",
+    "category": "Draining",
+    "desc": "Dépôt puis retraits massifs du Vault",
+    "default_attacker": 3,
+    "target_type": "contract",
+    "contract": "vault"
+  },
+  {
+    "id": "token_drain",
+    "label": "Token Drain",
+    "category": "Draining",
+    "desc": "3 très grands transferts token vers un wallet",
+    "default_attacker": 4,
+    "target_type": "wallet",
+    "contract": "token",
+    "default_target": 10
+  },
+  {
+    "id": "wallet_drain_slow",
+    "label": "Wallet Drain (lent)",
+    "category": "Draining",
+    "desc": "5 envois ETH lents vers le même wallet",
+    "default_attacker": 5,
+    "target_type": "wallet",
+    "contract": null,
+    "default_target": 10
+  },
+  {
+    "id": "wallet_drain_fast",
+    "label": "Wallet Drain (rapide)",
+    "category": "Draining",
+    "desc": "2 gros envois ETH instantanés vers le même wallet",
+    "default_attacker": 6,
+    "target_type": "wallet",
+    "contract": null,
+    "default_target": 10
+  },
+  {
+    "id": "contract_drain",
+    "label": "Contract Drain",
+    "category": "Draining",
+    "desc": "20 petits retraits rapides du Vault",
+    "default_attacker": 7,
+    "target_type": "contract",
+    "contract": "vault"
+  },
+  {
+    "id": "low_and_slow",
+    "label": "Low & Slow",
+    "category": "Furtif",
+    "desc": "3 dépôts très espacés pour éviter la détection",
+    "default_attacker": 8,
+    "target_type": "contract",
+    "contract": "vault"
+  },
+  {
+    "id": "gradual_escalation",
+    "label": "Gradual Escalation",
+    "category": "Furtif",
+    "desc": "Montants croissants pour escalader progressivement",
+    "default_attacker": 9,
+    "target_type": "contract",
+    "contract": "vault"
+  },
+  {
+    "id": "periodic_bot",
+    "label": "Periodic Bot",
+    "category": "Furtif",
+    "desc": "5 achats DEX à intervalles réguliers (bot)",
+    "default_attacker": 10,
+    "target_type": "contract",
+    "contract": "dex"
+  },
+  {
+    "id": "night_owl",
+    "label": "Night Owl",
+    "category": "Furtif",
+    "desc": "5 dépôts lents simulant une activité nocturne",
+    "default_attacker": 11,
+    "target_type": "contract",
+    "contract": "vault"
+  },
+  {
+    "id": "stealth_accumulation",
+    "label": "Stealth Accumulation",
+    "category": "Furtif",
+    "desc": "Accumulation discrète via DEX + Vault alternés",
+    "default_attacker": 12,
+    "target_type": "contract",
+    "contract": "dex"
+  },
+  {
+    "id": "reentrancy_simulation",
+    "label": "Reentrancy Simulation",
+    "category": "Exploit",
+    "desc": "Simule un pattern de reentrancy sur le Vault",
+    "default_attacker": 2,
+    "target_type": "contract",
+    "contract": "vault"
+  },
+  {
+    "id": "integer_overflow_probe",
+    "label": "Integer Overflow Probe",
+    "category": "Exploit",
+    "desc": "Sonde les overflows avec des valeurs énormes",
+    "default_attacker": 3,
+    "target_type": "contract",
+    "contract": "dex"
+  },
+  {
+    "id": "zero_value_spam",
+    "label": "Zero Value Spam",
+    "category": "Exploit",
+    "desc": "50 transactions à valeur nulle pour saturer le contrat",
+    "default_attacker": 4,
+    "target_type": "contract",
+    "contract": "vault"
+  },
+  {
+    "id": "gas_griefing",
+    "label": "Gas Griefing",
+    "category": "Exploit",
+    "desc": "30 appels pour épuiser le gas des autres utilisateurs",
+    "default_attacker": 5,
+    "target_type": "contract",
+    "contract": "vault"
+  },
+  {
+    "id": "contract_call_flood",
+    "label": "Contract Call Flood",
+    "category": "Exploit",
+    "desc": "50 appels rapides pour saturer le contrat",
+    "default_attacker": 6,
+    "target_type": "contract",
+    "contract": "vault"
+  },
+  {
+    "id": "mev_bot_pattern",
+    "label": "MEV Bot Pattern",
+    "category": "MEV",
+    "desc": "6 cycles achat/vente rapides simulant un bot MEV",
+    "default_attacker": 7,
+    "target_type": "contract",
+    "contract": "dex"
+  },
+  {
+    "id": "arbitrage_aggressive",
+    "label": "Arbitrage Agressif",
+    "category": "MEV",
+    "desc": "Vault + DEX alternés pour arbitrage forcé",
+    "default_attacker": 8,
+    "target_type": "contract",
+    "contract": "vault"
+  },
+  {
+    "id": "sniper_bot",
+    "label": "Sniper Bot",
+    "category": "MEV",
+    "desc": "Achat ultra-rapide en moins de 150ms",
+    "default_attacker": 9,
+    "target_type": "contract",
+    "contract": "dex"
+  },
+  {
+    "id": "block_stuffing",
+    "label": "Block Stuffing",
+    "category": "MEV",
+    "desc": "100 micro-transactions pour remplir les blocs",
+    "default_attacker": 10,
+    "target_type": "contract",
+    "contract": "vault"
+  },
+  {
+    "id": "phantom_strike",
+    "label": "Phantom Strike",
+    "category": "Inconnu",
+    "desc": "Pattern inconnu : cross-protocol + montants zigzag + timing irrégulier",
+    "default_attacker": 12,
+    "target_type": "contract",
+    "contract": "vault"
+  }
+]
